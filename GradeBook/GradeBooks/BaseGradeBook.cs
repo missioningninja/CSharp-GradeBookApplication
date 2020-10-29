@@ -112,7 +112,7 @@ namespace GradeBook.GradeBooks
             double gpa = 0;
             if (IsWeighted)
             {
-                if (studentType.Equals("Honors") || studentType.Equals("DualEnrolled"))
+                if (studentType.Equals(StudentType.Honors) || studentType.Equals(StudentType.DualEnrolled))
                     gpa = 1;
             }
             switch (letterGrade)
