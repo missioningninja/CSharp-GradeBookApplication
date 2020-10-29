@@ -30,16 +30,34 @@ namespace GradeBook.GradeBooks
                 {
                     if (count <= percentage)
                         return 'A';
-                    if (count <= percentage * 2)
+                    else if (count <= percentage * 2)
                         return 'B';
-                    if (count <= percentage * 3)
+                    else if (count <= percentage * 3)
                         return 'C';
-                    if (count <= percentage * 4)
+                    else if (count <= percentage * 4)
                         return 'D';
                 }
                 count++;
             }
             return 'F';
+        }
+
+        public override void CalculateStatistics()
+        {
+            var students = Students;
+            if (students.Count < 5)
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+            else
+                base.CalculateStatistics();
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            var students = Students;
+            if (students.Count < 5)
+                Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+            else
+                base.CalculateStudentStatistics(name);
         }
     }
 }
